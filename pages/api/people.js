@@ -18,6 +18,7 @@ export default async (req, res) => {
       res.end(JSON.stringify({ people }));
       break;
     }
+
     case "POST": {
       const { firstName, lastName, bio, birthday } = req.body.newPerson;
       const newPerson = new Person({
@@ -31,6 +32,7 @@ export default async (req, res) => {
       res.statusCode = 201;
       res.end(JSON.stringify({ newPerson }));
     }
+
     default: {
       res.statusCode = 501;
       res.end(JSON.stringify({ error: "Method not implemented" }));
