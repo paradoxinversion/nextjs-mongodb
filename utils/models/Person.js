@@ -8,6 +8,7 @@ const PersonSchema = new Schema({
   lastname: String,
   birthday: Date,
   bio: String,
+  possessions: [{ type: Schema.Types.ObjectId, ref: "Possession" }],
 });
 
 const Person = mongoose.model("Person", PersonSchema);

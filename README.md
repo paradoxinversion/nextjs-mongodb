@@ -12,4 +12,4 @@ Have your mongodb uri ready, whether it's local or remote and add it to `.env.lo
 
 ```
 yarn dev
-``
+```

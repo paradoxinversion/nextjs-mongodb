@@ -20,19 +20,18 @@ export async function connectToDatabase() {
     return connection;
   } catch (e) {
     switch (e.name) {
+      // Some very simple error handling-- Here we're just checking if the server can't be found
       case "MongooseServerSelectionError":
         console.log(
           "DB Connection to the DB failed-- double check DATABASE_URI and ensure remote or local database is reachable"
         );
-        break;
+        throw e;
 
       default:
         console.log(
           "Something went wrong while trying to connect to the database."
         );
-        break;
+        throw e;
     }
-    // We'll return null if connection fails.
-    return null;
   }
 }
