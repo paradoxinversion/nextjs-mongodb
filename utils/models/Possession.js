@@ -3,11 +3,16 @@
  */
 import mongoose, { Schema } from "mongoose";
 
-const Possession = new Schema({
+const PossessionSchema = new Schema({
   possessionName: String,
   possessionValue: Number,
   owner: { type: Schema.Types.ObjectId, ref: "Person" },
 });
 
-const Possession = mongoose.model("Possession", PossessionSchema);
+let Possession;
+try {
+  Possession = mongoose.model("Possession");
+} catch {
+  Possession = mongoose.model("Possession", PossessionSchema);
+}
 export default Possession;
