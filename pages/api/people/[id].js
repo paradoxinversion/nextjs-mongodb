@@ -26,6 +26,13 @@ export default async (req, res) => {
       break;
     }
 
+    case "DELETE": {
+      const deletePerson = await Person.findByIdAndDelete(id);
+      res.statusCode = 200;
+      res.end(JSON.stringify(deletePerson));
+      break;
+    }
+
     default: {
       res.statusCode = 501;
       res.end(JSON.stringify({ error: "Method not implemented" }));
